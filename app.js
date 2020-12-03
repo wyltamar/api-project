@@ -147,16 +147,15 @@ app.post('/os', (req, res) => {
 
 //atualizar cliente
 //prettier-ignore
-app.put('/clientes/:id', (req, res) => {
-  const id = req.params.id;
+app.put('/clientes/:idCliente', (req, res) => {
+  const id = req.params.idCliente;
   const nome = req.body.nome;
   const endereco = req.body.endereco;
   const telefone = req.body.telefone;
   const email = req.body.email;
 
-    
     res.status(200).send({
-      id: id,
+      id: idCliente,
       nome: nome,
       endereco: endereco,
       telefone: telefone,
