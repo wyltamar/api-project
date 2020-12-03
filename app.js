@@ -164,6 +164,26 @@ app.put('/clientes/:idCliente', (req, res) => {
   
 });
 
+//atualizar usuario
+app.put('/usuarios/:idUsuario', (req, res) => {
+  const id = req.params.idUsuario;
+  const nome = req.body.nome;
+  const login = req.body.login;
+  const senha = req.body.senha;
+  const fone = req.body.fone;
+  const perfil = req.body.perfil;
+
+  //prettier-ignore
+  res.status(200).send({
+    id: id,
+    nome: nome,
+    login: login,
+    senha: senha,
+    fone: fone,
+    perfil: perfil
+  });
+});
+
 app.listen(port, () => {
   console.log(`Servidor rodando no endereço: http://localhost:${port}`);
 });
