@@ -70,6 +70,11 @@ app.get('/usuarios', (req, res) => {
   res.json(usuarios);
 });
 
+//listar OS
+app.get('/os', (req, res) => {
+  res.json(ordensServicos);
+});
+
 //filtrar cliente pelo id
 //prettier-ignore
 app.get('/clientes/:idCliente', (req, res) => {
@@ -81,11 +86,6 @@ app.get('/clientes/:idCliente', (req, res) => {
    }
   
   res.status(404).send({Menssagem: "Cliente inexixtente!"});
-});
-
-//listar OS
-app.get('/os', (req, res) => {
-  res.json(ordensServicos);
 });
 
 //inserir clientes
