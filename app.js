@@ -30,7 +30,7 @@ var clientes = [
 //prettier-ignore
 var usuarios = [
   {
-    id: '1',
+    id: 1,
     nome: 'João Lucas',
     login: 'joao12@gmail.com',
     senha: '2267',
@@ -42,12 +42,12 @@ var usuarios = [
 //prettier-ignore
 var ordensServicos = [
   {
-    numOs: '1',
+    numOs: 1,
     dataOs: '04/11/2020',
     situacaoOs: 'executada',
     tipo: 'OS',
     cliente: 'Amanda Gonçalves',
-    idCliente: '2',
+    idCliente: 2,
     equipamento: 'Notebook',
     defeito: 'Não liga',
     servico: 'Troca da fonte',
@@ -85,7 +85,29 @@ app.get('/clientes/:idCliente', (req, res) => {
        }
    }
   
-  res.status(404).send({Menssagem: "Cliente inexixtente!"});
+    res.status(404).send({Message: "Nonexistent costumer!"});
+});
+
+//filtrar usuario pelo id
+app.get('/usuarios/:idUsuario', (req, res) => {
+  for (i = 0; i < usuarios.length; i++) {
+    if (usuarios[i].id == req.params.idUsuario) {
+      res.json(usuarios[i]);
+      return;
+    }
+  }
+  res.status(404).send({ Menssage: 'Nonexistent user' });
+});
+
+//filtrar OS pelo numero da OS
+app.get('/os/:numOs', (req, res) => {
+  for (i = 0; i < ordensServicos.length; i++) {
+    if (ordensServicos[i].numOs == req.params.numOs) {
+      res.json(ordensServicos[i]);
+      return;
+    }
+  }
+  res.status(404).send({ Menssage: 'Nonexistent OS' });
 });
 
 //inserir clientes
