@@ -11,14 +11,14 @@ app.use(cors());
 //prettier-ignore
 var clientes = [ 
   {
-    id: 1,
+    idCliente: 1,
     nome: 'Pedro Lucas',
     Endereco: 'Rua da Matriz',
     telefone: '99645517',
     email: 'pedro@outlook.com'
   },
   {
-    id: 2,
+    idCliente: 2,
     nome: 'Amanda',
     Endereco: 'Rua da Matriz',
     telefone: '98345517',
@@ -30,7 +30,7 @@ var clientes = [
 //prettier-ignore
 var usuarios = [
   {
-    id: 1,
+    idUsusario: 1,
     nome: 'João Lucas',
     login: 'joao12@gmail.com',
     senha: '2267',
