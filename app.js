@@ -155,7 +155,7 @@ app.put('/clientes/:idCliente', (req, res) => {
   const email = req.body.email;
 
     res.status(200).send({
-      id: idCliente,
+      id: id,
       nome: nome,
       endereco: endereco,
       telefone: telefone,
