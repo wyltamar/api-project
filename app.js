@@ -127,7 +127,7 @@ app.post('/usuarios', (req, res) => {
   console.log('POST / Usuários', req.body);
   if (req.body) {
     usuarios.push(req.body);
-    res.send('Usuário(a) cadastrado com sucesso!');
+    res.status(201).send('Usuário(a) cadastrado com sucesso!');
   } else {
     res.status(400).send('Erro no cadastro de usuário!');
   }
@@ -139,7 +139,7 @@ app.post('/os', (req, res) => {
 
   if (req.body) {
     ordensServicos.push(req.body);
-    res.json(req.body);
+    res.status(201).send('Ordem de Serviço inserida com sucesso');
   } else {
     res.status(400).send('Erro no cadastro de Ordens de serviço!');
   }
