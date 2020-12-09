@@ -202,6 +202,53 @@ app.put('/os/:numOs', (req, res) => {
   res.sendStatus(404);
 });
 
+//excluir cliente
+app.delete('/clientes/:idCliente', (req, res) => {
+  const tamanhoAntes = clientes.length;
+
+  for (i = 0; i < clientes.length; i++) {
+    if (clientes[i].idCliente == req.params.idCliente) clientes.splice(i, 1);
+  }
+  clientes = clientes.filter(
+    (cliente) => cliente.idCliente != req.params.idCliente
+  );
+
+  if (tamanhoAntes > clientes.length) res.sendStatus(200);
+  else res.sendStatus(404);
+});
+
+//excluir usuario
+app.delete('/usuarios/:idUsuario', (req, res) => {
+  const tamanhoAntes = usuarios.length;
+
+  for (i = 0; i < usuarios.length; i++) {
+    if (usuarios[i].idUsuario == req.params.idUsuario) usuarios.splice(i, 1);
+  }
+  usuarios = usuarios.filter(
+    (ususario) => usuario.idUsuario != req.params.idUsuario
+  );
+
+  if (tamanhoAntes > usuarios.length) res.sendStatus(200);
+  else res.sendStatus(404);
+});
+
+//excluir ordem de serviço
+app.delete('/os/:numOs', (req, res) => {
+  const tamanhoAntes = ordensServicos.length;
+
+  for (i = 0; i < ordensServicos.length; i++) {
+    if (ordensServicos[i].numOs == req.params.numOs)
+      ordensServicos.splice(i, 1);
+  }
+
+  ordensServicos = ordensServicos.filter(
+    (ordensServico) => ordensServico.numOs != req.params.numOs
+  );
+
+  if (tamanhoAntes > ordensServicos.length) res.sendStatus(200);
+  else res.sendStatus(404);
+});
+
 app.listen(port, () => {
   console.log(`Servidor rodando no endereço: http://localhost:${port}`);
 });
