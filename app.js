@@ -165,7 +165,7 @@ app.put('/clientes/:idCliente', (req, res) => {
     }
   }
   
-    res.sendStatus(400);
+    res.sendStatus(404);
 });
 
 //atualizar usuario
@@ -183,7 +183,7 @@ app.put('/usuarios/:idUsuario', (req, res) => {
     }
   }
 
-  res.sendStatus(400);
+  res.sendStatus(404);
 });
 
 //atualizar os
@@ -199,7 +199,7 @@ app.put('/os/:numOs', (req, res) => {
       return;
     }
   }
-  res.sendStatus(400);
+  res.sendStatus(404);
 });
 
 app.listen(port, () => {
