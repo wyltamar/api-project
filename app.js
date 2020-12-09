@@ -30,7 +30,7 @@ var clientes = [
 //prettier-ignore
 var usuarios = [
   {
-    idUsusario: 1,
+    idUsuario: 1,
     nome: 'João Lucas',
     login: 'joao12@gmail.com',
     senha: '2267',
@@ -148,71 +148,58 @@ app.post('/os', (req, res) => {
 //atualizar cliente
 //prettier-ignore
 app.put('/clientes/:idCliente', (req, res) => {
-  const idCliente = req.params.idCliente;
-  const nome = req.body.nome;
-  const endereco = req.body.endereco;
-  const telefone = req.body.telefone;
-  const email = req.body.email;
 
-    res.status(200).send({
-      idCliente: idCliente,
-      nome: nome,
-      endereco: endereco,
-      telefone: telefone,
-      email: email
-    });
+  for(i=0; i< clientes.length; i++){
+
+    if(clientes[i].idCliente == req.params.idCliente){
+      if(req.body.nome)
+        clientes[i].nome = req.body.nome;
+      if(req.body.endereco)
+        clientes[i].endereco = req.body.endereco;
+      if(req.body.telefone)
+        clientes[i].telefone = req.body.telefone;
+      if(req.body.email)
+        clientes[i].email = req.body.email;
+        res.sendStatus(200);
+        return;
+    }
+  }
   
+    res.sendStatus(400);
 });
 
 //atualizar usuario
 app.put('/usuarios/:idUsuario', (req, res) => {
-  const idUsuario = req.params.idUsuario;
-  const nome = req.body.nome;
-  const login = req.body.login;
-  const senha = req.body.senha;
-  const telefone = req.body.telefone;
-  const perfil = req.body.perfil;
+  for (i = 0; i < usuarios.length; i++) {
+    if (usuarios[i].idUsuario == req.params.idUsuario) {
+      if (req.body.nome) usuarios[i].nome = req.body.nome;
+      if (req.body.login) usuarios[i].login = req.body.login;
+      if (req.body.senha) usuarios[i].senha = req.body.senha;
+      if (req.body.telefone) usuarios[i].telefone = req.body.telefone;
+      if (req.body.perfil) usuarios[i].perfil = req.body.perfil;
 
-  //prettier-ignore
-  res.status(200).send({
-    idUsuario: idUsuario,
-    nome: nome,
-    login: login,
-    senha: senha,
-    telefone: telefone,
-    perfil: perfil
-  });
+      res.sendStatus(200);
+      return;
+    }
+  }
+
+  res.sendStatus(400);
 });
 
 //atualizar os
 app.put('/os/:numOs', (req, res) => {
-  const numOs = req.params.numOs;
-  const dataOs = req.body.dataOs;
-  const situacaoOs = req.body.situacaoOs;
-  const tipo = req.body.tipo;
-  const cliente = req.body.cliente;
-  const idCliente = req.body.idCliente;
-  const equipamento = req.body.equipamento;
-  const defeito = req.body.defeito;
-  const servico = req.body.servico;
-  const tecnico = req.body.tecnico;
-  const valor = req.body.valor;
-
-  //prettier-ignore
-  res.status(200).send({
-    numOS: numOs,
-    dataOs: dataOs,
-    situacaoOs: situacaoOs,
-    tipo: tipo,
-    cliente: cliente,
-    perfil: perfil,
-    idCliente: idCliente,
-    equipamento: equipamento,
-    defeito: defeito,
-    servico: servico,
-    tecnico: tecnico,
-    valor: valor
-  });
+  for (i = 0; i < ordensServicos.length; i++) {
+    if (ordensServicos[i].numOs == req.params.numOs) {
+      if (req.body.situacaoOs)
+        ordensServicos[i].situacaoOs = req.body.situacaoOs;
+      if (req.body.tipo) ordensServicos[i].tipo = req.body.tipo;
+      if (req.body.servico) ordensServicos[i].servico = req.body.servico;
+      if (req.body.valor) ordensServicos[i].valor = req.body.valor;
+      res.sendStatus(200);
+      return;
+    }
+  }
+  res.sendStatus(400);
 });
 
 app.listen(port, () => {
