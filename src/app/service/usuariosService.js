@@ -12,8 +12,10 @@ exports.insert = (novoUsuario, callback) => {
   usuariosDao.insert(novoUsuario, callback);
 };
 
-exports.delete = (id, callback) => {
+exports.delete = (idUsu, callback) => {
   usuariosDao.delete(idUsu, callback);
 };
 
-exports.put = (id, alterRegistro, callback) => {};
+exports.put = (idUsu, alterRegistro, callback) => {
+  usuariosDao.put(idUsu, alterRegistro, callback);
+};
