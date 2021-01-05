@@ -41,6 +41,7 @@ exports.insert = (novoCliente, callback) => {
     } else {
       let sql =
         'insert into clientes (id,nome,endereco,telefone,email) values (?,?,?,?,?) ';
+      //prettier-ignore
       connection.query(
         sql,
         [
@@ -48,9 +49,8 @@ exports.insert = (novoCliente, callback) => {
           novoCliente.nome,
           novoCliente.endereco,
           novoCliente.telefone,
-          novoCliente.email,
+          novoCliente.email        
         ],
-
         (err, insertedrow) => {
           connection.release();
           if (err) callback(err);
