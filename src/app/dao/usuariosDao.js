@@ -23,12 +23,41 @@ exports.listUser = (callback) => {
       if (connection) connection.release();
       callback(err);
     } else {
-      let sql = 'select * from usuarios where id = ?';
+      let sql = 'select * from usuarios where idUsu = ?';
       connection.query(sql, [id], (err, usuario) => {
         connection.release();
         if (err) callback(err);
         else callback(err, usuario);
       });
+    }
+  });
+};
+
+exports.insert = (novoUsuario, callback) => {
+  connectionFactory.getConnection(function (err, connection) {
+    if (err) {
+      if (connection) connection.release();
+      callback(err);
+    } else {
+      let sql =
+        'insert into usuarios(idUsu,nomeUsu,login,senha,telefone,perfil) values(?,?,?,?,?,?) ';
+      //prettier-ignore
+      connection.query(
+        sql,
+        [
+          novoUsuario.idUsu,
+          novoUsuario.nomeUsu,
+          novoUsuario.login,
+          novoUsuario.senha,
+          novoUsuario.telefone,
+          novoUsuario.perfil
+        ],
+        (err, novoUsuario)=>{
+          connection.release()
+          if(err) callback(err)
+          else callback(err,novoUsuario)
+        }
+      );
     }
   });
 };
