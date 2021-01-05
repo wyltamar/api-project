@@ -13,7 +13,7 @@ exports.insert = (novoUsuario, callback) => {
 };
 
 exports.delete = (id, callback) => {
-  usuariosDao.delete(id, callback);
+  usuariosDao.delete(idUsu, callback);
 };
 
 exports.put = (id, alterRegistro, callback) => {};
