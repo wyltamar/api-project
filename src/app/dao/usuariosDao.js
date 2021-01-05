@@ -77,3 +77,32 @@ exports.delete = (idUsu, callback) => {
     }
   });
 };
+
+exports.put = (idUsu, alterRegistro, callback) => {
+  connectionFactory.getConnection((err, connection) => {
+    if (err) {
+      if (connection) connection.release();
+      callback(err);
+    } else {
+      sql =
+        'update usuarios where idUsu = ?, nomeUsu = ?, login = ?, senha = ?, telefone = ?, perfil = ?';
+      //prettier-ignore
+      connection.query(
+        sql,
+        [
+          alterRegistro.idUsu,
+          alterRegistro.nomeUsu,
+          alterRegistro.login,
+          alterRegistro.senha,
+          alterRegistro.telefone,
+          alterRegistro.perfil
+        ],
+        (err) => {
+          connection.release()
+          if(err) callback(err)
+          else callback()
+        }
+      );
+    }
+  });
+};
