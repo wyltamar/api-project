@@ -61,3 +61,19 @@ exports.insert = (novoUsuario, callback) => {
     }
   });
 };
+
+exports.delete = (idUsu, callback) => {
+  connectionFactory.getConnection((err, connection) => {
+    if (err) {
+      if (connection) connection.release();
+      callback(err);
+    } else {
+      sql = 'delete from usuarios where idUsu = ?';
+      connection.query(sql, [idUsu], (err) => {
+        connection.release();
+        if (err) callback(err);
+        else callback();
+      });
+    }
+  });
+};
