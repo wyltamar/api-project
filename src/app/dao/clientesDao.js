@@ -91,7 +91,7 @@ exports.put = (id, alterRegistro, callback) => {
       let sql =
         'update clientes set nome = ?,endereco = ?, telefone = ?,email = ? where id = ?';
       //prettier-ignore
-      connection.query(sql, [alterRegistro.nome,alterRegistro.endereco,alterRegistro.telefone,alterRegistro.email], ((err) => {
+      connection.query(sql, [alterRegistro.nome,alterRegistro.endereco,alterRegistro.telefone,alterRegistro.email, id], ((err) => {
         connection.release();
         if (err) callback(err);
         else callback();

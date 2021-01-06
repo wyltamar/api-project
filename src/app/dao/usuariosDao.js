@@ -85,23 +85,26 @@ exports.put = (idUsu, alterRegistro, callback) => {
       callback(err);
     } else {
       sql =
-        'update usuarios where idUsu = ?, nomeUsu = ?, login = ?, senha = ?, telefone = ?, perfil = ?';
+        'update usuarios set nomeUsu = ?, login = ?, senha = ?, telefone = ?, perfil = ? where idUsu = ?';
       //prettier-ignore
       connection.query(
         sql,
         [
-          alterRegistro.idUsu,
           alterRegistro.nomeUsu,
           alterRegistro.login,
           alterRegistro.senha,
           alterRegistro.telefone,
-          alterRegistro.perfil
+          alterRegistro.perfil,
+          idUsu
         ],
-        (err) => {
+        ((err) => {
           connection.release()
-          if(err) callback(err)
+          if(err){
+            callback(err)
+            console.log(err)
+          } 
           else callback()
-        }
+        })
       );
     }
   });
