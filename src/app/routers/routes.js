@@ -13,6 +13,6 @@ routes.get('/usuarios', usuariosController.getListUsuarios);
 routes.get('/usuarios/:id', usuariosController.getUsuario);
 routes.post('/usuarios', usuariosController.post);
 routes.delete('/usuarios/:id', usuariosController.delete);
-routes.put('usuarios/:id', usuariosController.put);
+routes.put('/usuarios/:idUsu', usuariosController.put);
 
 module.exports = routes;
