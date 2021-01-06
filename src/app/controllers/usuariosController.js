@@ -29,8 +29,8 @@ exports.delete = (req, res) => {
 };
 
 exports.put = (req, res) => {
-  usuariosService.put(req.params.idUsu, req.body, (err, usuarioAtualizado) => {
+  usuariosService.put(req.params.idUsu, req.body, (err) => {
     if (err) res.status(500).send(err);
-    else res.status(200).json(usuarioAtualizado);
+    else res.status(200).send();
   });
 };
