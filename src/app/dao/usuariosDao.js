@@ -24,7 +24,7 @@ exports.listUser = (callback) => {
       callback(err);
     } else {
       let sql = 'select * from usuarios where idUsu = ?';
-      connection.query(sql, [id], (err, usuario) => {
+      connection.query(sql, [idUsu], (err, usuario) => {
         connection.release();
         if (err) callback(err);
         else callback(err, usuario);
