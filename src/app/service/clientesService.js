@@ -4,8 +4,8 @@ exports.listAllClientes = (callback) => {
   clientesDao.listAllClientes(callback)
 }
 //prettier-ignore
-exports.listCliente = (callback) => {
-  clientesDao.listCliente(callback)
+exports.listCliente = (id,callback) => {
+  clientesDao.listCliente(id,callback)
 }
 
 exports.insert = (novoCliente, callback) => {
