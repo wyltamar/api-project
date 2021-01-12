@@ -17,21 +17,23 @@ exports.listAllUsers = (callback) => {
   });
 };
 
-exports.listUser = (callback) => {
+//prettier-ignore
+exports.listUser = (idUsu, callback)=> {
   connectionFactory.getConnection(function (err, connection) {
     if (err) {
-      if (connection) connection.release();
-      callback(err);
+      if (connection) connection.release()
+      callback(err)
     } else {
       let sql = 'select * from usuarios where idUsu = ?';
-      connection.query(sql, [idUsu], (err, usuario) => {
-        connection.release();
-        if (err) callback(err);
-        else callback(err, usuario);
-      });
+      //prettier-ignore
+      connection.query(sql, [idUsu], (function(err, usuario){
+        connection.release()
+        if(err) callback(err)
+        else callback(err, usuario)
+      }))
     }
-  });
-};
+  })
+}
 
 exports.insert = (novoUsuario, callback) => {
   connectionFactory.getConnection(function (err, connection) {

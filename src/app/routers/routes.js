@@ -10,7 +10,7 @@ routes.delete('/clientes/:id', clientesController.delete);
 routes.put('/clientes/:id', clientesController.put);
 
 routes.get('/usuarios', usuariosController.getListUsuarios);
-routes.get('/usuarios/:id', usuariosController.getUsuario);
+routes.get('/usuarios/:idUsu', usuariosController.getUsuario);
 routes.post('/usuarios', usuariosController.post);
 routes.delete('/usuarios/:idUsu', usuariosController.delete);
 routes.put('/usuarios/:idUsu', usuariosController.put);

@@ -4,8 +4,8 @@ exports.listAllUsers = (callback) => {
   usuariosDao.listAllUsers(callback);
 };
 
-exports.listUser = (callback) => {
-  usuariosDao.listUser(callback);
+exports.listUser = (idUsu, callback) => {
+  usuariosDao.listUser(idUsu, callback);
 };
 
 exports.insert = (novoUsuario, callback) => {
