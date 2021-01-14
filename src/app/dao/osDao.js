@@ -1,4 +1,4 @@
-const { isert } = require('../service/osService');
+const { insert } = require('../service/osService');
 const connectionFactory = require('./connectionFactory');
 
 exports.insert = (novaOs, callback) => {
