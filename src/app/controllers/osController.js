@@ -20,3 +20,10 @@ exports.getOs = (req, res) => {
     else res.status(200).json(os);
   });
 };
+
+expoorts.put = (req, res) => {
+  osService.put(req.params.numOs, req.body, (err) => {
+    if (err) res.status(500).send(err);
+    else res.status(200).send();
+  });
+};
