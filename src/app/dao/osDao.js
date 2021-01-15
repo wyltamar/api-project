@@ -33,3 +33,19 @@ exports.insert = (novaOs, callback) => {
     }
   });
 };
+
+exports.listAllOs = (callback) => {
+  connectionFactory.getConnection((err, connection) => {
+    if (err) {
+      if (connection) connection.release();
+      callback(err);
+    } else {
+      let sql = 'select * from tbos';
+      connection.query(sql, (err, oss) => {
+        connection.release();
+        if (err) callback(err);
+        else callback(err, oss);
+      });
+    }
+  });
+};
