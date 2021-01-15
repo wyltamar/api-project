@@ -15,3 +15,7 @@ exports.listOs = (numOs, callback) => {
 exports.put = (numOs, alterOs, callback) => {
   osDao.put(numOs, alterOs, callback);
 };
+
+exports.delete = (numOs, callback) => {
+  osDao.delete(numOs, callback);
+};
