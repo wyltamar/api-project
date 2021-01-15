@@ -18,5 +18,6 @@ routes.put('/usuarios/:idUsu', usuariosController.put);
 
 routes.post('/os', osController.post);
 routes.get('/os', osController.getListOss);
+routes.get('/os/:numOs', osController.getOs);
 
 module.exports = routes;
