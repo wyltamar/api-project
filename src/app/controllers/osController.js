@@ -13,3 +13,10 @@ exports.getListOss = (req, res) => {
     else res.status(200).json(oss);
   });
 };
+
+exports.getOs = (req, res) => {
+  osService.listOs(req.params.numOs, (err, os) => {
+    if (err) res.status(500).send(err);
+    else res.status(200).json(os);
+  });
+};
