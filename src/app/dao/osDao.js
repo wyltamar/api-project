@@ -96,3 +96,19 @@ exports.put = (numOs, alterOs, callback) => {
     }
   });
 };
+
+exports.delete = (numOs, callback) => {
+  connectionFactory.getConnection((err, connection) => {
+    if (err) {
+      if (connection) connection.release();
+      callback(err);
+    } else {
+      let sql = 'delete from tbos where numOs = ?';
+      connection.query(sql, [numOs], (err) => {
+        connection.release();
+        if (err) callback(err);
+        else callback();
+      });
+    }
+  });
+};
