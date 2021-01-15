@@ -65,3 +65,34 @@ exports.listOs = (numOs, callback) => {
     }
   });
 };
+
+exports.put = (numOs, alterOs, callback) => {
+  connectionFactory.getConnection((err, connection) => {
+    if (err) {
+      if (connection) connection.release();
+      callback(err);
+    } else {
+      let sql =
+        'update tbos set tipo=?,situacao=?,equipamento=?,defeito=?,servico=?,tecnico=?,valor=? where numOs=?';
+      //prettier-ignore
+      connection.query(
+        sql,
+        [
+          alterOs.tipo,
+          alterOs.situacao,
+          alterOs.equipamento,
+          alterOs.defeito,
+          alterOs.servico,
+          alterOs.tecnico,
+          alterOs.valor,
+          numOs
+        ],
+        (err) => {
+          connection.release()
+          if(err) callback(err)
+          else callback()
+        }
+      );
+    }
+  });
+};
