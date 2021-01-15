@@ -49,3 +49,19 @@ exports.listAllOs = (callback) => {
     }
   });
 };
+
+exports.listOs = (numOs, callback) => {
+  connectionFactory.getConnection((err, connection) => {
+    if (err) {
+      if (connection) connection.release();
+      callback(err);
+    } else {
+      let sql = 'select * from tbos where numOs = ?';
+      connection.query(sql, [numOs], (err, os) => {
+        connection.release();
+        if (err) callback(err);
+        else callback(err, os);
+      });
+    }
+  });
+};
