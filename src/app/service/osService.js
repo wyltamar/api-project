@@ -11,3 +11,7 @@ exports.listAllOs = (callback) => {
 exports.listOs = (numOs, callback) => {
   osDao.listOs(numOs, callback);
 };
+
+exports.put = (numOs, alterOs, callback) => {
+  osDao.put(numOs, alterOs, callback);
+};
