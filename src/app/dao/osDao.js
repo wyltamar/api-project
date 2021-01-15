@@ -14,7 +14,7 @@ exports.insert = (novaOs, callback) => {
         novaOs.numOs,
         novaOs.dataOs,
         novaOs.tipo,
-        novaOs.situcao,
+        novaOs.situacao,
         novaOs.idCli,
         novaOs.equipamento,
         novaOs.defeito,
