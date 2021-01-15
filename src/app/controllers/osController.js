@@ -31,6 +31,6 @@ exports.put = (req, res) => {
 exports.delete = (req, res) => {
   osService.delete(req.params.numOs, (err) => {
     if (err) res.status(500).send(err);
-    else res.status(200).send('Número da OS excluída' + req.params.numOs);
+    else res.status(200).send('Número da OS excluída = ' + req.params.numOs);
   });
 };
