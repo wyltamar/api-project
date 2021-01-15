@@ -1,6 +1,7 @@
 const routes = require('express').Router();
 const clientesController = require('../controllers/clientesController');
 const usuariosController = require('../controllers/usuariosController');
+const osController = require('../controllers/osController');
 const post = require('./../controllers/post');
 
 routes.get('/clientes', clientesController.getListClientes);
