@@ -7,3 +7,7 @@ exports.insert = (novaOs, callback) => {
 exports.listAllOs = (callback) => {
   osDao.listAllOs(callback);
 };
+
+exports.listOs = (numOs, callback) => {
+  osDao.listOs(numOs, callback);
+};
