@@ -17,5 +17,6 @@ routes.delete('/usuarios/:idUsu', usuariosController.delete);
 routes.put('/usuarios/:idUsu', usuariosController.put);
 
 routes.post('/os', osController.post);
+routes.get('/os', osController.getListOss);
 
 module.exports = routes;
